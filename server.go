@@ -15,6 +15,7 @@ func NewServer() *Server {
 func (s *Server) routes() http.Handler {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/health", s.handleHealth)
+	mux.HandleFunc("/api/persons", s.createPersonHandler)
 
 	return mux
 }
